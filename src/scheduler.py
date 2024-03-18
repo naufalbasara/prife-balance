@@ -1,5 +1,5 @@
 import logging, datetime, json, os, sys, re
-logging.basicConfig(level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
+logging.basicConfig(filename='../running.log', filemode='a', level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
 
 from utils.scraper import fetch_prayertime
 from utils.utils import get_pardir
@@ -16,8 +16,11 @@ if __name__ == '__main__':
     
     with open(fp, 'w') as to_write:
         json.dump(prayertime_data, to_write)
+        logging.info('Prayer time data updated to data.json')
 
-    # Update cron job
-    ### code here
+    # # Update cron job
+    # cron = CronTab(user=True)
+    # job = cron.new(command='source ../venv/bin/activate; python scheduler.py')
+    # job.every_reboot()
 
     
