@@ -68,8 +68,10 @@ def fetch_prayertime(location:dict=None, type:str='daily'):
         data = response.json()['data']['timings']
         data = {
             'location': location,
-            f'Daily Schedule ({current_date})': data
+            f'Daily Schedule': data,
+            'last updated at':current_date
         }
+        logging.info(f'Data successfully fetched')
     except Exception as error:
         logging.error(f'Failed to fetch due to:\n\t{error}')
 

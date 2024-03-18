@@ -1,6 +1,7 @@
 **/.DS_STORE
 **/.env
 **/*.json
+**/*.log
 
 /venv
 **/__pycache__/
