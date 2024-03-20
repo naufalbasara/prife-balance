@@ -16,6 +16,8 @@ if __name__ == '__main__':
             location = get_location(city, country)
         except:
             print('[ERROR]: Please provide the right city and country input (e.g. \"Surabaya, Indonesia\")')
+    else:
+        location = None
     
     # Get the data from data source and store it in data.json
     prayertime_data = fetch_prayertime(location=location, type='daily')
