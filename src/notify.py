@@ -1,5 +1,5 @@
 import logging, time, json, sys
-logging.basicConfig(filename='../running.log', filemode='a', level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
+logging.basicConfig(filename='../log/running.log', filemode='a', level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
 
 from utils.notifications import Notifications
 
