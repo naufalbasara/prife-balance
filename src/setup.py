@@ -23,7 +23,7 @@ if __name__ == '__main__':
         print("Failed to install requirements")
     else:
         # Get user input on city and do sanity check on input
-        city_country = input("Input your city, country (e.g. 'Surabaya, Indonesia'): ")
+        city_country = input("\nInput your city, country (e.g. 'Surabaya, Indonesia'): ")
         while re.match(r'[\w]+, [\w]+', city_country) == None:
             city_country = input("Please provide the correct input (e.g. 'Surabaya, Indonesia'): ")
 
@@ -53,8 +53,9 @@ if __name__ == '__main__':
             
             # commit to write cron job(s)
             cron.write_to_user(user=current_user)
+            print("\n[info]:\tcron jobs installed.")
             logging.info("User setup succeed")
-            print("User setup succeed")
+            print("\nUser setup succeed.")
 
         except Exception as error:
             logging.error(f"User setup failed -> {error}")
