@@ -53,7 +53,7 @@ if __name__ == '__main__':
                     prayer_job.setall(f'{minute} {hour} * * *')
                     prayer_job.enable()
 
-                location = json.load(json_file)['Location']
+                location = json.load(json_file)['location']
                 city, country = location['city'], location['country']
             
             # commit to write cron job(s)
