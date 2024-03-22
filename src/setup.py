@@ -2,6 +2,7 @@ import logging, sys, os, json, re
 logging.basicConfig(filename='../log/running.log', filemode='a', level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
 from crontab import CronTab
 from utils.utils import get_pardir, get_user
+from utils.notifications import Notifications
 
 def install_reqs():
     try:
@@ -18,6 +19,7 @@ def install_reqs():
 if __name__ == '__main__':
     logging.info("User setup begin, fetching the data and setting all the cron jobs")
     installed_status = install_reqs()
+    notification = Notifications()
 
     if installed_status == False:
         print("Failed to install requirements")
@@ -50,12 +52,17 @@ if __name__ == '__main__':
                     prayer_job = cron.new(command=f'cd {pardir}/src && {pydir} {notifier} {prayer}-{time}', comment=f'prife-{prayer}', user=f'{current_user}')
                     prayer_job.setall(f'{minute} {hour} * * *')
                     prayer_job.enable()
+
+                location = json.load(json_file)['Location']
+                city, country = location['city'], location['country']
             
             # commit to write cron job(s)
             cron.write_to_user(user=current_user)
             print("\n[info]:\tcron jobs installed.")
             logging.info("User setup succeed")
             print("\nUser setup succeed.")
+
+            notification.notify('', 'Setup succeed', '', f'Notifications will come out every prayer time in your location ({city}, {country})')
 
         except Exception as error:
             logging.error(f"User setup failed -> {error}")
