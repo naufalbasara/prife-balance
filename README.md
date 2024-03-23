@@ -25,6 +25,9 @@ Prife is a daily prayer reminder for you by sending desktop notifications to not
 
 5. Once done, cron job will installed locally in your pc and you will receive notification from python launcher
 
+    <img width="1440" alt="image" src="https://github.com/naufalbasara/prife-balance/assets/79196487/f1561da9-05d5-4fdc-88e2-0c042f204cce">
+
+
 ## IMPORTANT:
 
 1. Make sure you already installed python before running the script, you can use package manager or download in their website
