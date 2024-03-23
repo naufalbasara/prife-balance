@@ -46,15 +46,17 @@ if __name__ == '__main__':
             # get all the prayer data and set the cron job to each of them
             fp = os.path.join(pardir, 'data.json')
             with open(fp, 'r') as json_file:
-                jsobj = json.load(json_file)['Daily Schedule']
-                for prayer, time in jsobj.items():
+                jsobj = json.load(json_file)
+                prayer_time = jsobj['Daily Schedule']
+                location = jsobj['location']
+
+                for prayer, time in prayer_time.items():
                     hour, minute = time.split(":")
                     prayer_job = cron.new(command=f'cd {pardir}/src && {pydir} {notifier} {prayer}-{time}', comment=f'prife-{prayer}', user=f'{current_user}')
                     prayer_job.setall(f'{minute} {hour} * * *')
                     prayer_job.enable()
-
-                location = json.load(json_file)['location']
-                city, country = location['city'], location['country']
+                
+                city, country =location['city'], location['country']
             
             # commit to write cron job(s)
             cron.write_to_user(user=current_user)
@@ -67,3 +69,4 @@ if __name__ == '__main__':
         except Exception as error:
             logging.error(f"User setup failed -> {error}")
             print(f"User setup failed -> {error}")
+            raise Exception
