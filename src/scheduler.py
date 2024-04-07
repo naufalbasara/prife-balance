@@ -1,9 +1,8 @@
+from utils.utils import get_pardir, pardir
 import logging, json, os, sys
-logging.basicConfig(filename='../log/running.log', filemode='a', level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
+logging.basicConfig(filename=f'{pardir}/log/running.log', filemode='a', level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
 
 from utils.scraper import fetch_prayertime, get_location
-from utils.utils import get_pardir
-from crontab import CronTab
 
 if __name__ == '__main__':
     """
@@ -21,7 +20,7 @@ if __name__ == '__main__':
     
     # Get the data from data source and store it in data.json
     prayertime_data = fetch_prayertime(location=location, type='daily')
-    fp = os.path.join(get_pardir(), 'data.json')
+    fp = os.path.join(pardir, 'data.json')
     
     with open(fp, 'w') as to_write:
         json.dump(prayertime_data, to_write)

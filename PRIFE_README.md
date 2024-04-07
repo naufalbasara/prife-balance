@@ -35,4 +35,4 @@ Prife is a daily prayer reminder for you by sending desktop notifications to not
 3. ENABLE notifications coming from python launcher. How to check? go to spotlight search `cmd + space` and search for 'notifications',
 4. OR go to settings -> notifications -> python launcher -> enable notifications.
 
-#### Further contributions are considered to be merged if I personally find it useful
+#### Further contributions are considered to be merged.

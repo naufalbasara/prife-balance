@@ -1,7 +1,7 @@
+from utils.utils import get_user, pardir
 import logging, re
-logging.basicConfig(filename='../log/running.log', filemode='a', level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
+logging.basicConfig(filename=f'{pardir}/log/running.log', filemode='a', level=logging.INFO, format=' %(asctime)s -  %(levelname)s:  %(message)s')
 from crontab import CronTab
-from utils.utils import get_user
 
 if __name__ == '__main__':
     """
@@ -16,4 +16,4 @@ if __name__ == '__main__':
 
     cron.write_to_user(current_user)
     logging.info('prife cron job removed.')
-    print('[info]:\tprife cron job removed.')
+    print('[info]:\tprife cron job removed... ✅')

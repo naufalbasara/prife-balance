@@ -1,0 +1,6 @@
+ 2024-04-07 21:10:51,695 -  INFO:  User setup begin, fetching the data and setting all the cron jobs
+ 2024-04-07 21:11:14,222 -  INFO:  Getting (Bandung, Indonesia) location details
+ 2024-04-07 21:11:21,456 -  INFO:  Fetched data details, returned a dictionary
+ 2024-04-07 21:11:21,521 -  INFO:  Fetching prayer time at Bandung,Indonesia (-6.9034495, 107.6431575) on 07-04-2024
+ 2024-04-07 21:11:22,390 -  INFO:  Data successfully fetched
+ 2024-04-07 21:11:22,395 -  INFO:  Prayer time data updated to data.json
